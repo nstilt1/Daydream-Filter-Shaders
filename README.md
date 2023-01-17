@@ -1,7 +1,7 @@
 # How to use shaders in the examples folder
 Head over to `https://github.com/aracitdev/ShaderDesktop/releases/tag/1.0`
 
-Download it, and put the shaders in the Shaders folder of ShaderDesktop.
+Download it, and copy the shaders in `/exampleShaders` to the Shaders folder of ShaderDesktop.
 
 # Getting ShaderToys to work for ShaderDesktop
 (an excerpt from ShaderDesktop)
