@@ -27,7 +27,9 @@ vec3 hsv2rgb(vec3 c)
 }
 vec3 incrementHue(vec3 c)
 {
-    c.x += time * hueRate;
+    // sometimes you might want to use
+    // c.x += time * hueRate
+    c.x += iTime * hueRate;
     return hsv2rgb(c);
 }
 
