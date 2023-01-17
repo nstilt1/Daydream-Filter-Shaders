@@ -4,11 +4,11 @@ precision highp float;
 
 uniform float time;
 
-float hueRate = 0.1;
 
 // src: https://gist.github.com/983/e170a24ae8eba2cd174f
 
 // copy these functions into your shader
+float hueRate = 0.1;
 vec3 rgb2hsv(vec3 c)
 {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
