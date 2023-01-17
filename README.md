@@ -15,6 +15,7 @@ Add the following to the beginning of the file:
 * uniform float iTime;
 * uniform vec2 iMouse; Shader toy shaders that you convert cannot have anything in the iChannels.
 ```
+(revision): replace `iGlobalTime` with `iTime`
 
 The source of the shaders came from the link below, with my modification.
 `https://github.com/thennequin/LivingWallpaper/tree/master/Output/Presets`
