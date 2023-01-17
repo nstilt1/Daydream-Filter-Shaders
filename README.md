@@ -17,6 +17,9 @@ Add the following to the beginning of the file:
 ```
 (revision): replace `iGlobalTime` with `iTime`
 
+
+# Credits
+
 The source of the shaders came from the link below, with my modification.
 `https://github.com/thennequin/LivingWallpaper/tree/master/Output/Presets`
 
