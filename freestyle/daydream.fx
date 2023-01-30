@@ -10,19 +10,16 @@
 
 #include "ReShadeUI.fxh"
 
-  uniform float2 speed < __UNIFORM_SLIDER_FLOAT1
+  uniform float speed < __UNIFORM_SLIDER_FLOAT1
 	ui_min = 0.0; ui_max = 2.0;
 	ui_tooltip = "Speed";
 	ui_step = 0.01;
 > = 0.4;
 
-  
-  
-
+uniform float uTime;
 
 // SETUP & FUNCTIONS ///////////////////////////////
 ////////////////////////////////////////////////////
-    static float time = 0;
   float3 RGB_to_HSL(float3 color)
   {
       float3 HSL   = 0.0f;
@@ -53,12 +50,19 @@
       return (Hue_to_RGB(HSL.x) - 0.5) * (1.0 - abs(2.0 * HSL.z - 1)) * HSL.y + HSL.z;
   }
 
+
+
   float3 DaydreamAnimation(float3 color)
   {
       float3 hsl = RGB_to_HSL(color);
 
-      hsl.x += time*speed;
-
+      hsl.x += speed * uTime;
+      while(hsl.x > 1){
+        hsl.x -= 1;
+      }
+      while(hsl.x < 0){
+        hsl.x += 1;
+      }
 
       return HSL_to_RGB(hsl);
   }
@@ -79,6 +83,5 @@
       {
           VertexShader = PostProcessVS;
           PixelShader = PS_Daydream;
-          time += 1;
       }
   }
