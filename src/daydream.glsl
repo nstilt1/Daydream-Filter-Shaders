@@ -7,8 +7,14 @@ uniform float time;
 
 // src: https://gist.github.com/983/e170a24ae8eba2cd174f
 
-// copy these functions into your shader
+// this should be a parameter, probably less than one, and it can also be used with a negative value and some adjustments
 float hueRate = 0.1;
+
+
+// copy these functions 
+/////////////////////////////////
+
+// turns rgb to hsv
 vec3 rgb2hsv(vec3 c)
 {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
@@ -19,12 +25,16 @@ vec3 rgb2hsv(vec3 c)
     float e = 1.0e-10;
     return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
 }
+
+// turns hsv to rgb
 vec3 hsv2rgb(vec3 c)
 {
     vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
     vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
     return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
 }
+
+// increases the hue
 vec3 incrementHue(vec3 c)
 {
     // sometimes you might want to use
@@ -33,7 +43,7 @@ vec3 incrementHue(vec3 c)
     return hsv2rgb(c);
 }
 
-
+//////////////////////////////////////////////////////
 
 // usage
 void main( void ) {
